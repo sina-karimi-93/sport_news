@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    گالری تصاویر
+{% endblock title %}
+
+
+{% block content %}
+    <h1 class="text-center text-white text-bold mt-4">گالری تصاویر</h1>
+    <hr>
+    <div class="container my-5">
+        <div class="row">
+            {% for gallery in galleries %}
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="{{ gallery.get_absolute_url }}">
+                                <h3 class="text-dark">
+                                    {{ gallery.title }}
+                                </h3>
+                            </a>
+                            <hr>
+                            <img src="{{ gallery.image.url }}" alt="{{ gallery.title }}"
+                                 class="img-fluid rounded gallery-image">
+                            <p class="text-secondary">{{ gallery.created | date }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}

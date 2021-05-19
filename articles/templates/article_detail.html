@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<section class="container">
+    <div class="row my-5">
+        <div class="col-12 my-2">
+            <div class="card news-header">
+                <div class="card-body ">
+                    <a href="{{single_news.get_absolute_url }}" class="link-dark">
+                        <h5 class="">{{ article.title}}</h5>
+                    </a>
+                    <br>
+                    <img src="{{ article.image.url}}" alt="" class="img-fluid">
+                    <br><br>
+                    <p>{{article.description }}</p>
+                    <p>{{ article.created |date }}</p>
+                    <p>نویسنده {{article.author}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,386 @@
+:root {
+    --mainYellow: #FF9208;
+    --mainLightYellow: #FF5A08;
+    --mainBlue: #40ACF1;
+    --mainBlack: #292F36;
+    --mainWhite: #FFFFFF;
+    --mainGrey: rgb(216, 214, 214);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--mainBlack);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.txt-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Neon Button */
+
+.neon-btn {
+    position: relative;
+    color: #fff;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #FF9208, #f441a5, #ffeb3b, #FF5A08);
+    background-size: 400%;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.neon-btn:hover {
+    animation: animate 8s linear infinite;
+    color: var(--mainWhite);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+
+.neon-btn:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #0309f4, #f441a5, #ffeb3b, #0309f4);
+    background-size: 400%;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.neon-btn:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+/* nav */
+
+.nav-section {
+    background-color: var(--mainBlack);
+    border-bottom: 2px solid var(--mainWhite);
+}
+
+.nav-title {
+    animation-name: studio;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.nav-title1 {
+    animation-name: studio;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.1s;
+}
+
+.nav-title2 {
+    animation-name: studio;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+}
+
+.nav-title3 {
+    animation-name: studio;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.3s;
+}
+
+.nav-title4 {
+    animation-name: studio;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.4s;
+}
+
+.nav-title-studio {
+    color: var(--mainWhite);
+}
+
+@keyframes studio {
+    0% {
+        color: var(--mainWhite);
+    }
+    50% {
+        color: var(--mainYellow);
+    }
+    100% {
+        color: var(--mainWhite);
+    }
+}
+
+.navbar-icon {
+    color: var(--mainWhite)
+}
+
+.nav-items {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--mainWhite);
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-items:hover {
+    color: var(--mainYellow);
+}
+
+/* Language */
+
+/* head */
+
+.hd {
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+}
+
+.head {
+    background: url(../images/bg1.jpg);
+    background-size: cover;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    animation-name: zoom;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1) translateX(-5%);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.header-poarc {
+    color: var(--mainYellow);
+    font-weight: 700;
+    font-size: 70px;
+    animation-name: zoom;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    animation-duration: 8s;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.header-studio {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.header-title {
+    font-weight: 700;
+    color: var(--mainWhite);
+}
+
+/* work */
+
+.work {
+    background: var(--mainBlack);
+}
+
+.work-paragraph {
+    color: var(--mainWhite);
+    font-size: 18px;
+    line-height: 35px;
+    font-weight: 500;
+}
+
+/* contact us */
+
+.contact-icon {
+    color: var(--mainYellow);
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-icon:hover {
+    color: var(--mainLightYellow);
+}
+
+.contact-info {
+    color: var(--mainWhite);
+}
+
+/* products */
+@media (min-width: 570px) {
+    .designs-card-body {
+        height: 120px;
+    }
+}
+
+@media (min-width: 660px) {
+    .designs-card-body {
+        height: 100px;
+    }
+}
+
+@media (min-width: 992px) {
+    .designs-card-body {
+        height: 150px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .designs-card-body {
+        height: 110px;
+    }
+}
+
+.design-title-icon {
+    color: var(--mainYellow);
+    font-size: 45px;
+}
+
+.design-title-icon:hover {
+    color: var(--mainLightYellow);
+}
+
+.prodcut-title-1 {
+    color: var(--mainWhite);
+}
+
+.product-title-2 {
+    color: var(--mainYellow);
+}
+
+.product-btn {
+    color: var(--mainWhite);
+    font-size: 18px;
+    background-color: var(--mainYellow);
+    transition: all 0.2 ease-in-out;
+}
+
+.product-btn:hover {
+    background-color: var(--mainLightYellow);
+    color: var(--mainWhite);
+}
+
+.product-img {
+    height: 300px;
+}
+
+.product-icon {
+    color: var(--mainYellow);
+    font-size: 18px;
+}
+
+/* message */
+
+.message {
+}
+
+/* footer */
+
+.footer {
+    /* background: var(--mainBlack); */
+    border-top: 2px solid var(--mainGrey);
+}
+
+.footer-icon {
+    color: var(--mainYellow);
+    font-size: 30px;
+}
+
+.footer-icon:hover {
+    color: var(--mainLightYellow);
+}
+
+/* Designer */
+
+.design-section {
+    border-top: 2px solid var(--mainGrey);
+}
+
+/* portfolio */
+
+.site-content {
+    /*padding-top: 100px;*/
+    padding-bottom: 145px;
+}
+
+.developer {
+    font-size: 11px;
+}
+
+.software-tools {
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.success {
+    background: var(--mainYellow);
+
+}
+
+/* Pagination */
+.active-page {
+    background-color: var(--mainYellow);
+    color: var(--mainWhite);
+}
+
+.active-page:hover {
+    background-color: var(--mainYellow);
+}
+
+.page-link {
+    color: var(--mainBlack);
+}
+
+
+/* new */
+.news-card {
+    min-height: 450px;;
+}
+
+.news-header {
+    text-align: right;
+}
+
+/* Gallery */
+.gallery-image {
+    width: 300px;
+    height: 200px;
+}

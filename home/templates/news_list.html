@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<section class="container">
+<h1 class="text-center text-white mt-5">اخبار ورزشی</h1>
+
+    <div class="row my-5">
+        {% for single_news in news %}
+        <div class="col-sm-4">
+            <div class="card news-header news-card">
+                <div class="card-body ">
+                    <a href="{{single_news.get_absolute_url }}" class="link-dark">
+                        <p class="">{{ single_news.title | truncatechars:35}}</p>
+                    </a>
+                    <img src="{{ single_news.image.url}}" alt="" class="img-responsive img-fluid">
+                    <p>{{ single_news.created |date }}</p>
+                    <p>{{single_news.description | truncatechars:100}}</p>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

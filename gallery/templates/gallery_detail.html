@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ gallery.title }}
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex align-items-sm-end align-items-center justify-content-center pb-3 mt-5">
+            <h1 class="text-uppercase pl-3 font-weight-bold prodcut-title-1">
+                {{ gallery.title }}</h1>
+        </div>
+        <div class="row">
+            <!-- product -->
+            <div class="col-md-12 py-3">
+                <div class="card">
+                    <!-- Photo main -->
+                    <img src="{{ gallery.image.url }}" alt="" class="card-img">
+                    <div class="card-body text-center">
+                        <!-- Thumbnails -->
+                        <div class="row mb-5 thumbs">
+                            <!-- Photo 1 -->
+                            {% for foo in gallery_images %}
+                                <div class="col-2 mb-4 single-photo">
+                                    <a href="{{ foo.image.url }}" data-toggle="lightbox"
+                                       data-gallery="example-gallery">
+                                        <img src="{{ foo.image.url }}" alt="" class="img-fluid">
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Card Body -->
+                        <hr>
+                        <div class="d-flex justify-content-around flex-wrap align-items-center">
+                            <h6 class="text-capitalize font-weight-bold align-self-baseline">
+                                    <span class="footer-icon">
+                                        <i class="far fa-calendar-alt">
+                                        </i>
+                                    </span>
+                                {{ gallery.created|date }}
+                            </h6>
+                        </div>
+                        {% if gallery.description %}
+                            <hr>
+                            <h2 class="font-weight-bold py-3">توضیحات</h2>
+                            <p>
+                                {{ gallery.description }}
+                            </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url "gallery:gallery_list" %}" class="text-white btn neon-btn btn-block">گالری</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End product -->
+        </div>
+    </div>
+{% endblock content %}

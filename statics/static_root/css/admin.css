@@ -1,0 +1,45 @@
+
+#header{
+    height: 50px;
+    background: #292F36;
+    color: #fff;
+    border-top: 1px solid #fff!important;
+}
+#branding h1{
+    color: #fff!important;
+}
+
+#content h1{
+    color: #404040;
+    font-weight: 800;
+
+}
+
+#user-tools{
+    font-size: 15px;
+}
+
+div.breadcrumbs{
+    background: #FF9208;
+    color: #333;
+
+}
+
+div.breadcrumbs a{
+    color: #fff;
+}
+a:link, a:visited{
+    color: #404040;
+}
+.module h2, .module caption, .inline-group h2{
+    background: #FF9208;
+    font-size: 15px;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button{
+    background: #FF5A08;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default{
+    background: #3385ff;
+}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block content %}
+    <div class="container my-3">
+        <div class="row">
+            <!-- Categories -->
+            <div class="col-sm-3 p-3">
+                <aside>
+                    <h4 class="text-center text-white">دسته بندی ها</h4>
+                    <br>
+                    <div class="card px-3">
+                        {% for category in categories %}
+                            <a href="{{ category.get_absolute_url }}" class="py-1">
+                                <h6 class="text-center text-danger">
+                                    {{ category.title }}
+                                </h6>
+                            </a>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </aside>
+            </div>
+            <!-- Products -->
+            <div class="col-sm-9 p-3">
+                <h4 class="text-center text-white">محصولات</h4>
+                <hr>
+                {% for product in products %}
+                    <div class="card my-3 p-1">
+                        <div class="row">
+                            <!-- Product Information -->
+                            <div class="col-sm-8">
+                                <h5 class="text-danger">{{ product.title }}</h5>
+                                <hr>
+                                <p>قیمت: {{ product.price }} ریال</p>
+                                <p>{{ product.description |truncatewords:20 }}</p>
+                                <a href="{{ product.get_absolute_url }}" class="text-warning">
+                                    مشاهده جزییات
+                                </a>
+                                <p class="text-right text-dark">
+                                    <a href="" class="text-dark nav-link nav-item">
+                                        افزودن به سبد خرید
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- Product Main Image -->
+                            <div class="col-sm-4">
+                                <div>
+                                    <img class="img-fluid rounded" src="{{ product.main_image.url }}" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<section class="container">
+<h1 class="text-center text-white mt-5">مقالات</h1>
+    <hr>
+    <div class="row my-5">
+        {% for article in articles %}
+        <div class="col-12 my-2">
+            <div class="card news-header news-card">
+                <div class="card-body ">
+                    <a href="{{article.get_absolute_url }}" class="link-dark">
+                        <h5 class="">{{ article.title | truncatechars:50}}</h5>
+                    </a>
+                    <br>
+                    <img src="{{ article.image.url}}" alt="" class="w-25 img-rounded">
+                    <br><br>
+                    <p>{{article.description | truncatechars:400}}</p>
+                    <p>{{ article.created |date }}</p>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

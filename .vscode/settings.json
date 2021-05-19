@@ -1,0 +1,10 @@
+{
+    // "python.pythonPath": "C:\\Program Files\\Python37\\python.exe",
+    "python.autoComplete.extraPaths": [
+        "./root_folder"
+    ],
+    "python.analysis.extraPaths": [
+        "./root_folder"
+    ],
+    "python.pythonPath": "venv\\Scripts\\python.exe"
+}

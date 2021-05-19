@@ -1,0 +1,63 @@
+<!-- nav -->
+<section class="nav-section">
+    <nav class="nav navbar-expand-lg justify-content-between">
+        <div class="nav-brand d-flex px-1">
+            {% if user.is_authenticated %}
+                <h5 class="text-white">خوش آمدید {{ request.user.first_name }} </h5>
+            {% endif %}
+        </div>
+
+        <button class="navbar-toggler" data-target="#myNav" data-toggle="collapse" type="button">
+                <span class="navbar-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="myNav">
+            <ul class="navbar-nav  align-items-center">
+                <li class="navbar-item px-2"><a href="/" class="nav-link text-capitalize nav-items">خانه</a></li>
+
+                <li class="navbar-item px-2"><a href="{% url 'articles:article_list' %}"
+                                                class="nav-link text-capitalize nav-items">مقالات
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'notifications:notification_list' %}"
+                                                class="nav-link text-capitalize nav-items">اعلانات
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'products:product_list' %}"
+                                                class="nav-link text-capitalize nav-items">فروشگاه
+                </a>
+                </li>
+
+                <li class="navbar-item px-2">
+                    <a href="{% url 'gallery:gallery_list' %}"
+                       class="nav-link text-capitalize nav-items">گالری تصاویر
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="navbar-item px-2">
+                        <a href="/accounts/logout"
+                           class="nav-link text-capitalize nav-items">خروج
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="navbar-item px-2">
+                        <a href="/accounts/register"
+                           class="nav-link text-capitalize nav-items">ثبت نام
+                        </a>
+                    </li>
+                    <li class="navbar-item px-2">
+                        <a href="/accounts/login"
+                           class="nav-link text-capitalize nav-items">ورود
+                        </a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </nav>
+</section>
