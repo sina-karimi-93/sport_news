@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Category(models.Model):
     title = models.CharField(max_length=200, verbose_name="عنوان")
-    slug = models.SlugField(default="اسلاگ", unique=True, verbose_name="اسلاگ")
+    slug = models.SlugField(default="اسلاگ", allow_unicode=True, unique=True, verbose_name="اسلاگ")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -16,7 +16,7 @@ class Category(models.Model):
         verbose_name_plural = "دسته بندی ها"
 
     def get_absolute_url(self):
-        return reverse('products:product_category', args=[self.slug])
+        return reverse('products:product_category', args=[self.id])
 
 
 class ProductManager(models.Manager):
@@ -30,7 +30,7 @@ class Product(models.Model):
     category = models.ManyToManyField(
         Category, related_name="category", verbose_name="دسته بندی")
     title = models.CharField(max_length=250, verbose_name='عنوان محصول')
-    slug = models.SlugField(unique=True, verbose_name='اسلاگ')
+    slug = models.SlugField(unique=True, allow_unicode=True, verbose_name='اسلاگ')
     price = models.IntegerField(default=0.00, verbose_name="قیمت")
     description = models.TextField(verbose_name='توضیحات محصول')
     main_image = models.ImageField(
@@ -47,7 +47,7 @@ class Product(models.Model):
         ordering = ['title', ]
 
     def get_absolute_url(self):
-        return reverse('products:product_detail', args=[self.id, self.slug])
+        return reverse('products:product_detail', args=[self.slug])
 
     objects = ProductManager()
 
@@ -59,4 +59,4 @@ class ProductImage(models.Model):
 
     class Meta:
         verbose_name = "گالری تصاویر"
-        verbose_name = "گالری تصاویر"
+        verbose_name_plural = "گالری تصاویر"

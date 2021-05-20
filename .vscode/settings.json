@@ -6,5 +6,5 @@
     "python.analysis.extraPaths": [
         "./root_folder"
     ],
-    "python.pythonPath": "venv\\Scripts\\python.exe"
+    "python.pythonPath": "/bin/python3"
 }

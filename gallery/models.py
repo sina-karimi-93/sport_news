@@ -13,7 +13,7 @@ class GalleryManager(models.Manager):
 
 class Gallery(models.Model):
     title = models.CharField(max_length=250, verbose_name="عنوان")
-    slug = models.SlugField(unique=True, verbose_name="اسلاگ")
+    slug = models.SlugField(unique=True,allow_unicode=True, verbose_name="اسلاگ")
     description = models.TextField(null=True, blank=True, verbose_name="توضیحات")
     image = models.ImageField(upload_to="gallery/", verbose_name="تصویر اصلی")
     created = models.DateTimeField(
@@ -30,7 +30,7 @@ class Gallery(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("gallery:gallery_detail", args=[self.id, self.slug])
+        return reverse("gallery:gallery_detail", args=[self.slug])
 
     objects = GalleryManager()
 

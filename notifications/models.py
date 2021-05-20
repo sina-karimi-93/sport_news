@@ -10,7 +10,7 @@ class NotificationManager(models.Manager):
 
 class Notification(models.Model):
     title = models.CharField(max_length=250, verbose_name='عنوان')
-    slug = models.SlugField(unique=True, verbose_name='اسلاگ')
+    slug = models.SlugField(unique=True,allow_unicode=True, verbose_name='اسلاگ')
 
     description = models.TextField(verbose_name='متن اعلان')
     created = models.DateTimeField(

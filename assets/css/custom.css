@@ -12,7 +12,8 @@ html {
 }
 
 body {
-    background: var(--mainBlack);
+    background-image: linear-gradient(#3a2f49,#292F36);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

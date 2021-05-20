@@ -12,7 +12,7 @@ class ArticleManager(models.Manager):
 class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=250, verbose_name='عنوان')
-    slug = models.SlugField(unique=True, verbose_name='اسلاگ')
+    slug = models.SlugField(unique=True,allow_unicode=True, verbose_name='اسلاگ')
     image = models.ImageField(
         upload_to='articles/images/', verbose_name='تصویر')
     description = models.TextField(verbose_name='متن مقاله')
@@ -33,4 +33,4 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('articles:article_detail', args=[self.id, self.slug])
+        return reverse('articles:article_detail', args=[self.slug])

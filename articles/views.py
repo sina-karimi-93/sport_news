@@ -12,8 +12,8 @@ def article_list(request):
     return render(request, 'article_list.html', context)
 
 
-def article_detail(request, pk, slug):
-    article = get_object_or_404(Article, id=pk, slug=slug)
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug)
     context = {
         'article': article
     }

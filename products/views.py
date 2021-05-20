@@ -5,7 +5,17 @@ from .models import Product, Category, ProductImage
 # Create your views here.
 
 
-def product_list(request):
+def product_list(request, pk=None):
+    if pk:
+        category = Category.objects.filter(id=pk)
+        categories = Category.objects.all()
+        products = Product.objects.filter(category__in=category)
+        context = {
+            "products": products,
+            "categories": categories
+        }
+
+        return render(request, 'products_list.html', context)
     products = Product.objects.get_active_products()
     categories = Category.objects.all()
     context = {
@@ -16,8 +26,8 @@ def product_list(request):
     return render(request, 'products_list.html', context)
 
 
-def product_detail(request, pk, slug):
-    product = get_object_or_404(Product, id=pk, slug=slug)
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     product_gallery = ProductImage.objects.filter(product=product)
     products = Product.objects.get_active_products()
     context = {
@@ -29,12 +39,10 @@ def product_detail(request, pk, slug):
     return render(request, 'products_detail.html', context)
 
 
-def product_category(request, slug):
-    category = Category.objects.filter(slug=slug)
-    print(category)
+def product_category(request, pk):
+    category = Category.objects.filter(id=pk)
     categories = Category.objects.all()
     products = Product.objects.filter(category__in=category)
-    print(products)
     context = {
         "products": products,
         "categories": categories

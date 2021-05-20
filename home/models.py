@@ -10,7 +10,7 @@ class NewsManager(models.Manager):
 
 class News(models.Model):
     title = models.CharField(max_length=250, verbose_name='عنوان')
-    slug = models.SlugField(unique=True, verbose_name='اسلاگ')
+    slug = models.SlugField(unique=True, allow_unicode=True,verbose_name='اسلاگ')
     image = models.ImageField(
         upload_to='news/images/', verbose_name='تصویر')
     description = models.TextField(verbose_name='متن خبر')
@@ -32,4 +32,4 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('news:news_detail', args=[self.id, self.slug])
+        return reverse('news:news_detail', args=[self.slug])

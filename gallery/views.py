@@ -11,8 +11,8 @@ def gallery_list(request):
     return render(request, "gallery_list.html", context)
 
 
-def gallery_detail(request, pk, slug):
-    gallery = get_object_or_404(Gallery, id=pk, slug=slug)
+def gallery_detail(request, slug):
+    gallery = get_object_or_404(Gallery,slug=slug)
     gallery_images = GalleryImage.objects.filter(gallery=gallery)
 
     context = {
