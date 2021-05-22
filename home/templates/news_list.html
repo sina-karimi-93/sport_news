@@ -3,27 +3,51 @@
 
 
 
-<section class="container">
-<h1 class="text-center text-white mt-5">اخبار ورزشی</h1>
+    <section class="container">
+        <h1 class="text-center text-white mt-5">اخبار ورزشی</h1>
 
-    <div class="row my-5">
-        {% for single_news in news %}
-        <div class="col-sm-4">
-            <div class="card news-header news-card">
-                <div class="card-body ">
-                    <a href="{{single_news.get_absolute_url }}" class="link-dark">
-                        <p class="">{{ single_news.title | truncatechars:35}}</p>
-                    </a>
-                    <img src="{{ single_news.image.url}}" alt="" class="img-responsive img-fluid">
-                    <p>{{ single_news.created |date }}</p>
-                    <p>{{single_news.description | truncatechars:100}}</p>
+        <div class="row my-5">
+            <!-- SideBar -->
+            <div class="col-sm-3">
+                <div class="card">
+                    <h4 class="text-center font-weight-bold">آخرین خبر ها</h4>
+                    <hr>
+                    {% for last_new in last_news %}
+                        <a href="{{ last_new.get_absolute_url }}">
+                            <p class="text-center">{{ last_new.title }}</p>
+                        </a>
+                    {% endfor %}
                 </div>
+                <br>
+                <div class="card">
+                    <h4 class="text-center font-weight-bold">دیگر بخش ها</h4>
+                    <hr>
+                    <a class="text-dark text-center my-2" href="{% url "products:product_list" %}">فروشگاه</a>
+                    <a class="text-dark text-center my-2" href="{% url "articles:article_list" %}">مقالات</a>
+                    <a class="text-dark text-center my-2" href="{% url "notifications:notification_list" %}">اعلانات</a>
+                    <a class="text-dark text-center my-2" href="{% url "gallery:gallery_list" %}">گالری تصاویر</a>
+                </div>
+            </div>
+            <!-- News -->
+            <div class="col-sm-9">
+                <div class="row">
+                    {% for single_news in news %}
+                        <div class="col-sm-4">
+                            <div class="card news-header news-card">
+                                <div class="card-body ">
+                                    <a href="{{ single_news.get_absolute_url }}" class="text-success">
+                                        <p class="">{{ single_news.title | truncatechars:35 }}</p>
+                                    </a>
+                                    <img src="{{ single_news.image.url }}" alt="" class="img-responsive img-fluid">
+                                    <p>{{ single_news.created |date }}</p>
+                                    <p>{{ single_news.description | truncatechars:100 }}</p>
+                                </div>
 
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-</section>
-
-
+    </section>
 {% endblock %}

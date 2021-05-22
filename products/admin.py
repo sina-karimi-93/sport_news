@@ -1,8 +1,15 @@
 from django.contrib import admin
 from .models import Product, ProductImage, Category
+
+
 # Register your models here.
 
-admin.site.register(Category)
+@admin.register(Category)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title',)
+    list_display_links = ('id', 'title',)
+    search_fields = ('title',)
+    prepopulated_fields = {"slug": ("title",)}
 
 
 class ProductImageAdmin(admin.TabularInline):
@@ -12,7 +19,7 @@ class ProductImageAdmin(admin.TabularInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'is_active', 'created',)
-    list_display_links = ('id', 'title', )
+    list_display_links = ('id', 'title',)
     search_fields = ('title', 'description',)
     list_filter = ('is_active', 'created', 'updated',)
     list_editable = ('is_active',)

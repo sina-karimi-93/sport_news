@@ -1,11 +1,46 @@
 {% extends "base.html" %}
 {% block title %}Create an account{% endblock %}
 {% block content %}
-    <h1>Create an account</h1>
-    <p>Please, sign up using the following form:</p>
-    <form method="post">
-        {{ user_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Create my account"></p>
-    </form>
+    <div class="container">
+        <h1 class="text-center text-white mt-5 bg-warning p-1 rounded">ثبت نام</h1>
+        <p class="text-center text-white">لطفا توسط فرم زیر ثبت نام کنید</p>
+        <div class="row justify-content-center text-center">
+            <div class="my-5">
+                <form method="post" class="form-control">
+                    <!-- Username -->
+                    <label for="id_username" class="my-3 font-weight-bold">نام کاربری</label>
+                    <input class="form-control text-center" type="text" name="username" maxlength="150" required=""
+                           id="id_username">
+                    <p class="" style="font-size: 12px;">الزامی. 150 کاراکتر یا کمتر. فقط شامل حروف، اعداد، و علامات
+                        @/./+/-/_</p>
+                    </p>
+                    <!-- Name -->
+                    <label for="id_first_name" class="my-3 font-weight-bold">نام</label>
+                    <input class="form-control text-center" type="text" name="first_name" maxlength="150"
+                           id="id_first_name">
+
+                    <!-- Family -->
+                    <label for="id_last_name" class="my-3 font-weight-bold">نام خانوادگی</label>
+                    <input class="form-control text-center" type="text" name="last_name" maxlength="150"
+                           id="id_last_name">
+
+                    <!-- Email -->
+                    <label for="id_email" class="my-3 font-weight-bold">آدرس ایمیل</label>
+                    <input class="form-control text-center" type="email" name="email" maxlength="254" id="id_email">
+
+                    <!-- Password -->
+                    <label for="id_password" class="my-3 font-weight-bold">رمز عبور</label>
+                    <input class="form-control text-center" type="password" name="password" required=""
+                           id="id_password">
+                    <!-- Password2 -->
+                    <label for="id_password2" class="my-3 font-weight-bold">تکرار رمز عبور</label>
+                    <input class="form-control text-center" type="password" name="password2" required="" id="id_password2">
+                    <input type="hidden" name="csrfmiddlewaretoken"
+                           value="k5oZNSRA7dtRAQh3PXKyYsnyb2DH816MDyJglE7eR7GiniBi0QKqgKb3xu3ahXKY">
+
+                    <input type="submit" class="my-3 btn btn-warning btn-block font-weight-bold" value="ثبت نام">
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

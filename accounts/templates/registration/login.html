@@ -5,24 +5,47 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Log-in</h1>
-    {% if form.errors %}
-        <p>
-            Your username and password didn't match.
-            Please try again.
-        </p>
-    {% else %}
-        <p>Please, use the following form to log-in:</p>
-    {% endif %}
-    <div class="login-form">
-        <form action="{% url 'accounts:login' %}" method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}"/>
-            <p><input type="submit" value="Log-in"></p>
-        </form>
-        <p>
-            <a href="{% url "accounts:password_reset" %}">Forgotten your password?</a>
-        </p>
+    <div class="container">
+        <h1 class="text-center text-white mt-5 bg-warning p-1 rounded">ورود</h1>
+        <hr>
+        {% if form.errors %}
+            <p class="text-center text-white font-weight-bold">
+                نام کاربری یا رمز عبور درست نمی باشند.
+            </p>
+        {% else %}
+            <p class="text-center text-white">لطفا جهت ورود از فرم زیر استفاده کنید</p>
+        {% endif %}
+        <div class="row justify-content-center">
+            <div class="login-form text-center my-5 w-50 justify-content-center">
+                <form action="{% url 'accounts:login' %}" method="post" class="form-control">
+                    <!-- Username -->
+                    <label for="id_username">نام کاربری</label>
+                    <p>
+                        <input type="text" name="username" autofocus=""
+                               autocapitalize="none" autocomplete="username"
+                               required="" id="id_username"
+                               class="form-control text-center"
+                        >
+                    </p>
+                    <!-- Password -->
+                    <label for="id_password">رمز عبور</label>
+                    <p>
+                        <input type="password" name="password"
+                               autocomplete="current-password"
+                               required="" id="id_password"
+                               class="form-control text-center"
+                        >
+                    </p>
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                    <p><input type="submit" class="btn btn-block btn-warning" value="ورود"></p>
+                </form>
+
+                <p>
+                    <a href="{% url "accounts:password_reset" %}" class="text-danger">رمز عبور خود را فراموش کرده
+                        اید؟</a>
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}

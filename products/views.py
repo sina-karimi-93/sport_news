@@ -5,17 +5,7 @@ from .models import Product, Category, ProductImage
 # Create your views here.
 
 
-def product_list(request, pk=None):
-    if pk:
-        category = Category.objects.filter(id=pk)
-        categories = Category.objects.all()
-        products = Product.objects.filter(category__in=category)
-        context = {
-            "products": products,
-            "categories": categories
-        }
-
-        return render(request, 'products_list.html', context)
+def product_list(request):
     products = Product.objects.get_active_products()
     categories = Category.objects.all()
     context = {
