@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'notifications',
     'products',
     'gallery',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -130,8 +131,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'statics', 'media_root')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'accounts/login'
-LOGOUT_URL = 'accounts/logout'
+LOGIN_URL = '/accounts/login'
+LOGOUT_URL = '/accounts/logout'
 
 # Messages
 

@@ -39,6 +39,11 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="navbar-item px-2">
+                        <a href="{% url 'order:user_open_order' %}"
+                           class=" nav-link text-capitalize nav-items">سبد خرید
+                        </a>
+                    </li>
+                    <li class="navbar-item px-2">
                         <a href="/accounts/logout"
                            class="nav-link text-capitalize nav-items">خروج
                         </a>

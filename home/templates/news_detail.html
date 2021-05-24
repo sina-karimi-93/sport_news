@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}
-{{single_news.title}}
+    {{ single_news.title }}
 {% endblock title %}
 
 
 {% block content %}
-<div class="container">
-    <div class="card my-5 news-header">
-        <div class="card-body">
-            <h5 class="card-title text-center font-weight-bold">{{ single_news.title }}</h5>
-            <br>
-            <img src="{{ single_news.image.url }}" alt="" class="img-fluid img-rounded img-responsive">
-            <br><br>
-            <p class="card-text">{{ single_news.description }}</p>
-            <hr>
-            <p>{{ single_news.created |date }}</p>
+    <div class="container">
+        <div class="card my-5 news-header">
+            <div class="card-body">
+                <h5 class="card-title text-center font-weight-bold">{{ single_news.title }}</h5>
+                <br>
+                <img src="{{ single_news.image.url }}" alt="" class="img-fluid img-rounded img-responsive">
+                <br><br>
+                <p class="card-text">{{ single_news.description }}</p>
+                {% if single_news.source_link %}
+                    <a href="{{ single_news.source_link }}">منبع</a>
+                {% endif %}
+                <hr>
+                <p>{{ single_news.created |date }}</p>
+            </div>
         </div>
     </div>
-</div>
 {% endblock content %}

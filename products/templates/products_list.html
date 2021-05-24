@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+        <h1 class="text-center bg-secondary py-2 text-white mt-5">فروشگاه</h1>
+        {% for foo in category_title %}
+            <h2 class="text-center text-danger">دسته بندی {{ foo.title }}</h2>
+        {% endfor %}
+
     <div class="container my-3">
         <div class="row">
             <!-- Categories -->
@@ -37,15 +42,11 @@
                                 <h5 class="text-danger">{{ product.title }}</h5>
                                 <hr>
                                 <p>قیمت: {{ product.price }} ریال</p>
-                                <p>{{ product.description |truncatewords:20 }}</p>
-                                <a href="{{ product.get_absolute_url }}" class="text-warning">
+                                <p>{{ product.description |truncatewords:40 }}</p>
+                                <a href="{{ product.get_absolute_url }}" class="text-white btn neon-btn">
                                     مشاهده جزییات
                                 </a>
-                                <p class="text-right text-dark">
-                                    <a href="" class="text-dark nav-link nav-item">
-                                        افزودن به سبد خرید
-                                    </a>
-                                </p>
+
                             </div>
                             <!-- Product Main Image -->
                             <div class="col-sm-4">

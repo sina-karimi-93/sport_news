@@ -7,18 +7,31 @@
     <div class="container my-5">
         <div class="card p-2 mb-5">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <h2 class="text-dark">{{ product.title }}</h2>
+                    <hr>
                     <p class="text-dark">{{ product.description }}</p>
-                    <p>قیمت: {{ product.price }} ریال</p>
-                    <p class="text-right text-warning">
-                        <a href="" class="text-warning nav-link nav-item">
-                            افزودن به سبد خرید
-                        </a>
-                    </p>
+                    <form action="{% url 'order:add_user_order' %}" method="post">
+                        {% csrf_token %}
+                        {{ new_order_form.product_id }}
+
+                        <div class="row justify-content-between">
+                            <div class="col-3">
+                                <p class="text-left">
+                                    {{ new_order_form.count }}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>قیمت: {{ product.price }} ریال</p>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="text-white btn neon-btn btn-block">افزودن به سبد خرید</button>
+                    </form>
+                    <p class="text-secondary mt-3" style="font-size: 12px">{{ product.created |date }}</p>
                 </div>
                 <!-- Images -->
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <a href="{{ product.main_image.url }}" class="mb-1">
                         <img src="{{ product.main_image.url }}" alt="{{ product.title }}" class="img-fluid rounded">
                     </a>
@@ -36,10 +49,10 @@
             </div>
         </div>
         <!-- Other Products -->
-        <h4 class="text-white">محصولات دیگر</h4>
+        <h4 class="text-white bg-secondary py-2">محصولات دیگر</h4>
         <div class="row mt-5">
             {% for p in products %}
-                <div class="col-sm-4">
+                <div class="col-sm-4 mt-2">
                     <div class="card">
                         <div class="card-header">
                             {{ p.title }}

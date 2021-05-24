@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    سبد خرید
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="text-center text-white bg-secondary py-2 mt-5">سبد خرید</h1>
+    <div class="container">
+        <div class="card my-5">
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    {% if order != None and details|length > 0 %}
+                        <div class="col-12">
+                            <div class="row align-items-center bg-danger py-4 rounded my-2">
+                                <div class="col-sm-1 text-center text-white font-weight-bold">حذف</div>
+                                <div class="col-sm-2 text-center text-white font-weight-bold">مجموع</div>
+                                <div class="col-sm-1 text-center text-white font-weight-bold">قیمت</div>
+                                <div class="col-sm-2 text-center text-white font-weight-bold">تعداد</div>
+                                <div class="col-sm-3 text-center text-white font-weight-bold">عنوان</div>
+                                <div class="col-sm-3 text-center text-white font-weight-bold">تصویر</div>
+                            </div>
+                        </div>
+                        {% for detail in details %}
+                            <div class="col-12 mt-2">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-sm-1 text-center">
+                                        <a href="/orders/remove-order-detail/{{ detail.id }}">
+                                            <i class="fas fa-trash text-danger">
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <p>{{ detail.get_detail_sum }} </p>
+                                    </div>
+                                    <div class="col-sm-1 text-center">
+                                        <p>{{ detail.price }} </p>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <p>{{ detail.count }}</p>
+                                    </div>
+                                    <div class="col-sm-3 text-center text-white">
+                                        <p class="text-white">
+                                            <a class="btn neon-btn"
+                                               href="{{ detail.product.get_absolute_url }}">
+                                                {{ detail.product.title }}
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="img-fluid rounded" src="{{ detail.product.main_image.url }}" alt="">
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+                        <div class="text-center">
+                            <h4 class="text-center">سبد خرید خالی است</h4>
+                            <br>
+                            <p class="text-danger"><a class="text-center btn btn-block neon-btn"
+                                                      href="{% url 'products:product_list' %}">رفتن به فروشگاه</a></p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="card my-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-12">
+                        <div class="row align-items-center bg-warning py-4 mx-1 rounded my-2">
+                            <div class="col-sm-4 text-center text-dark font-weight-bold"></div>
+                            <div class="col-sm-4 text-center text-dark font-weight-bold">قیمت نهایی</div>
+                            <div class="col-sm-4 text-center text-dark font-weight-bold">تعداد</div>
+                        </div>
+
+                        <div class="row align-items-center py-4 rounded mx-1 my-2">
+                            <div class="col-sm-4 text-center text-dark font-weight-bold">
+                                <a href="" class="btn btn-block neon-btn text-white">پرداخت</a>
+                            </div>
+                            <div class="col-sm-4 text-center text-dark font-weight-bold">{{ total_price }}</div>
+                            <div class="col-sm-4 text-center text-dark font-weight-bold">{{ total_count }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

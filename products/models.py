@@ -41,6 +41,9 @@ class Product(models.Model):
         auto_now=True, verbose_name='تاریخ بروزرسانی')
     is_active = models.BooleanField(verbose_name='فعال/غیرفعال')
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'

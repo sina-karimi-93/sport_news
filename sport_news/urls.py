@@ -26,6 +26,7 @@ urlpatterns = [
     path('notifications/', include('notifications.urls', namespace='notifications')),
     path('products/', include('products.urls', namespace='products')),
     path('gallery/', include('gallery.urls', namespace='gallery')),
+    path('orders/', include('order.urls', namespace='order')),
 
 ]
 
