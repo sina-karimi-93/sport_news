@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Logged out{% endblock %}
 {% block content %}
-    <h1>Logged out</h1>
-    <p>
-        You have been successfully logged out.
-        You can <a href="{% url "accounts:login" %}">log-in again</a>.
-    </p>
+    <h1 class="text-center bg-warning my-5 py-2">Logged out</h1>
+    <div class="container my-5">
+        <p class="text-white text-center font-weight-bold my-5">
+            You have been successfully logged out.
+            You can <a class="text-warning" href="{% url "accounts:login" %}">log-in again</a>.
+        </p>
+    </div>
 {% endblock %}

@@ -1,45 +1,57 @@
 
-#header{
-    height: 50px;
-    background: #292F36;
-    color: #fff;
-    border-top: 1px solid #fff!important;
-}
-#branding h1{
-    color: #fff!important;
-}
+/** {*/
+/*    font-weight: bold;*/
+/*}*/
 
-#content h1{
-    color: #404040;
-    font-weight: 800;
+/*body {*/
+/*    background-color: #292F36;*/
+/*}*/
 
-}
+/*#header {*/
+/*    height: 50px;*/
+/*    background: #292F36;*/
+/*    color: #fff;*/
+/*    border-top: 1px solid #fff !important;*/
+/*}*/
 
-#user-tools{
-    font-size: 15px;
-}
+/*#branding h1 {*/
+/*    color: #fff !important;*/
+/*}*/
 
-div.breadcrumbs{
-    background: #FF9208;
-    color: #333;
+/*#content h1 {*/
+/*    color: #ffffff;*/
+/*    font-weight: 800;*/
 
-}
+/*}*/
 
-div.breadcrumbs a{
-    color: #fff;
-}
-a:link, a:visited{
-    color: #404040;
-}
-.module h2, .module caption, .inline-group h2{
-    background: #FF9208;
-    font-size: 15px;
-}
+/*#user-tools {*/
+/*    font-size: 15px;*/
+/*}*/
 
-.button, input[type=submit], input[type=button], .submit-row input, a.button{
-    background: #FF5A08;
-}
+/*div.breadcrumbs {*/
+/*    background: #FF9208;*/
+/*    color: #333;*/
 
-.button.default, input[type=submit].default, .submit-row input.default{
-    background: #3385ff;
-}
+/*}*/
+
+
+/*div.breadcrumbs a {*/
+/*    color: #fff;*/
+/*}*/
+
+/*a:link, a:visited {*/
+/*    color: white;*/
+/*}*/
+
+/*.module h2, .module caption, .inline-group h2 {*/
+/*    background: #FF9208;*/
+/*    font-size: 15px;*/
+/*}*/
+
+/*.button, input[type=submit], input[type=button], .submit-row input, a.button {*/
+/*    background: #FF5A08;*/
+/*}*/
+
+/*.button.default, input[type=submit].default, .submit-row input.default {*/
+/*    background: #3385ff;*/
+/*}*/

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.core.paginator import Paginator
 from order.forms import UserNewOrderFOrm
 from .models import Product, Category, ProductImage
 
@@ -8,11 +8,15 @@ from .models import Product, Category, ProductImage
 
 
 def product_list(request):
-    products = Product.objects.get_active_products()
+    products = Product.objects.get_active_products().order_by('-created')
+    paginator = Paginator(products, 5)  # Show 8 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     categories = Category.objects.all()
     context = {
         "products": products,
-        "categories": categories
+        "categories": categories,
+        'page_obj': page_obj
     }
 
     return render(request, 'products_list.html', context)
@@ -36,11 +40,15 @@ def product_detail(request, slug):
 def product_category(request, pk):
     category = Category.objects.filter(id=pk)
     categories = Category.objects.all()
-    products = Product.objects.filter(category__in=category)
+    products = Product.objects.filter(category__in=category).order_by('-created')
+    paginator = Paginator(products, 5)  # Show 8 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         "products": products,
         "categories": categories,
-        "category_title": category
+        "category_title": category,
+        "page_obj": page_obj,
     }
     print(category)
     return render(request, 'products_list.html', context)

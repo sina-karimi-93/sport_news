@@ -10,7 +10,7 @@ class NewsManager(models.Manager):
 
 class News(models.Model):
     title = models.CharField(max_length=250, verbose_name='عنوان')
-    slug = models.SlugField(unique=True, allow_unicode=True,verbose_name='اسلاگ')
+    slug = models.SlugField(unique=True, allow_unicode=True, verbose_name='اسلاگ')
     image = models.ImageField(
         upload_to='news/images/', verbose_name='تصویر')
     description = models.TextField(verbose_name='متن خبر')
@@ -19,7 +19,7 @@ class News(models.Model):
     updated = models.DateTimeField(
         auto_now=True, verbose_name='تاریخ بروزرسانی')
     is_active = models.BooleanField(verbose_name='فعال/غیرفعال')
-    source_link = models.URLField(verbose_name='منبع')
+    source_link = models.URLField(blank=True, null=True, verbose_name='منبع')
 
     class Meta:
         verbose_name = "خبر"

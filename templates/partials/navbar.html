@@ -3,7 +3,7 @@
     <nav class="nav navbar-expand-lg justify-content-between">
         <div class="nav-brand d-flex px-1">
             {% if user.is_authenticated %}
-                <h5 class="text-white">خوش آمدید {{ request.user.first_name }} </h5>
+                <h5 class="text-white font-weight-bold">خوش آمدید {{ request.user.first_name }} </h5>
             {% endif %}
         </div>
 

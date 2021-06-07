@@ -6,7 +6,7 @@ from .forms import UserRegistrationForm
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
+        user_form = UserRegistrationForm(request.POST or None)
         if user_form.is_valid():
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)

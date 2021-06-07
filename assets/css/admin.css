@@ -1,45 +1,60 @@
 
-#header{
+* {
+    font-weight: bold;
+}
+a{
+    font-size: 16px;
+}
+
+body {
+    background-color: #292F36;
+}
+
+#header {
     height: 50px;
     background: #292F36;
     color: #fff;
-    border-top: 1px solid #fff!important;
-}
-#branding h1{
-    color: #fff!important;
+    border-top: 1px solid #fff !important;
 }
 
-#content h1{
-    color: #404040;
+#branding h1 {
+    color: #fff !important;
+}
+
+#content h1 {
+    color: #ffffff;
     font-weight: 800;
 
 }
 
-#user-tools{
+#user-tools {
     font-size: 15px;
 }
 
-div.breadcrumbs{
+div.breadcrumbs {
     background: #FF9208;
     color: #333;
 
 }
 
-div.breadcrumbs a{
+
+div.breadcrumbs a {
     color: #fff;
 }
-a:link, a:visited{
-    color: #404040;
+
+a:link, a:visited {
+    color: white;
 }
-.module h2, .module caption, .inline-group h2{
+
+.module h2, .module caption, .inline-group h2 {
     background: #FF9208;
     font-size: 15px;
 }
 
-.button, input[type=submit], input[type=button], .submit-row input, a.button{
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
     background: #FF5A08;
 }
 
-.button.default, input[type=submit].default, .submit-row input.default{
+.button.default, input[type=submit].default, .submit-row input.default {
     background: #3385ff;
 }

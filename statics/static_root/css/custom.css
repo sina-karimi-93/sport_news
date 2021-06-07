@@ -12,12 +12,19 @@ html {
 }
 
 body {
-    background: var(--mainBlack);
+    background-image: linear-gradient(#3a2f49,#292F36);
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 a {
     text-decoration: none;
 }
+
+a:hover {
+    text-decoration: none;
+}
+
 .txt-justify {
     text-align: justify;
     text-justify: inter-word;
@@ -363,11 +370,15 @@ a {
     color: var(--mainBlack);
 }
 
+.card {
+    background-color: #d4cbed;
+}
 
 /* new */
 .news-card {
-    min-height: 450px;;
+    min-height: 400px;;
 }
+
 .news-header {
     text-align: right;
 }
