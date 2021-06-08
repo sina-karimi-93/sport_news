@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+    <h1 class="bg-secondary py-1 rounded text-white text-center my-5">تماس با ما</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form method="post" class="form-control my-5 w-75">
+                {% csrf_token %}
+                <h6 class="bg-warning py-2  rounded font-weight-bold text-dark text-center">عنوان</h6>
+                {{ form.title }}
+                <br>
+                <h6 class="bg-warning py-2  rounded font-weight-bold text-dark text-center">ایمیل</h6>
+                {{ form.email }}
+                <br>
+                <h6 class="bg-warning py-2  rounded font-weight-bold text-dark text-center">شماره تلفن</h6>
+                {{ form.phone_number }}
+                <br>
+                <h6 class="bg-warning py-2  rounded font-weight-bold text-dark text-center">پبام</h6>
+                {{ form.description }}
+                <br>
+                <button type="submit" class="btn btn-block text-white btn neon-btn">ارسال</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    محاسبه BMI
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="text-center bg-secondary py-2 text-white mt-5">محاسبه توده بدنی</h1>
+    <div class="container border border-warning my-5 rounded">
+        <h5 class="text-center text-white text-right mt-3">شاخص توده بدنی روشی برای محاسبه میزان چربی های بدن یک فرد بر
+            اساس
+            وزن و قد وی می باشد. با اینکه بی ام آی یک روش اندازه گیری غیر مستقیم است، اما ثابت شده که در اکثر مردم شاخصی
+            قابل قبول برای محاسبه اضافه وزن به حساب می آید</h5>
+        <br>
+        <p class="text-left text-white">
+            زیر ۱۸.۵ باشد، شخص دچار کاهش وزن است*
+        </p>
+        <p class="text-left text-white">
+            بین ۱۸.۵ و ۲۴.۹ باشد، شخص در بازه ی وزن سالم به سر می برد*
+        </p>
+        <p class="text-left text-white">
+            بین ۲۵ و ۲۹.۹ باشد، شخص اضافه وزن دارد*
+        </p>
+        <p class="text-left text-white">
+            بین ۳۰ و ۳۹.۹ باشد، شخص از چاقی مفرط رنج می برد*
+        </p>
+        <div class="my-5">
+            <div class="row justify-content-center">
+                <form action="" method="post" class="form-control w-50">
+                    {% csrf_token %}
+                    <p class="text-center font-weight-bold">قد (سانتی متر)</p>
+                    {{ form.height }}
+                    <br>
+                    <p class="text-center font-weight-bold">وزن (کیلوگرم)</p>
+                    {{ form.weight }}
+                    <br>
+                    <button type="submit" class="btn btn-block text-white btn neon-btn">محاسبه</button>
+                </form>
+            </div>
+            {% if answer %}
+                <div class="row justify-content-center mt-5">
+                    <h4 class="text-warning text-center">{{ answer }}</h4>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

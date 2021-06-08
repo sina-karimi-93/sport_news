@@ -33,3 +33,20 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return reverse('news:news_detail', args=[self.slug])
+
+
+class ContactUs(models.Model):
+    title = models.CharField(max_length=20, verbose_name='عنوان')
+    description = models.TextField(verbose_name='توضیحات')
+    email = models.EmailField(verbose_name='آدرس الکترونیکی')
+    phone_number = models.IntegerField(max_length=11)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'تماس با ما'
+        verbose_name_plural = 'پیام های تماس با ما'
+
+        ordering = ['-created']
+
+    def __str__(self):
+        return self.title

@@ -17,6 +17,12 @@
             <ul class="navbar-nav  align-items-center">
                 <li class="navbar-item px-2"><a href="/" class="nav-link text-capitalize nav-items">خانه</a></li>
 
+                <li class="navbar-item px-2"><a href="{% url 'news:contact_us' %}"
+                                                class="nav-link text-capitalize nav-items">تماس با ما
+                </a>
+                </li>
+
+
                 <li class="navbar-item px-2"><a href="{% url 'articles:article_list' %}"
                                                 class="nav-link text-capitalize nav-items">مقالات
                 </a>
@@ -24,6 +30,11 @@
 
                 <li class="navbar-item px-2"><a href="{% url 'notifications:notification_list' %}"
                                                 class="nav-link text-capitalize nav-items">اعلانات
+                </a>
+                </li>
+
+                <li class="navbar-item px-2"><a href="{% url 'news:calculate_bmi' %}"
+                                                class="nav-link text-capitalize nav-items">BMI
                 </a>
                 </li>
 
